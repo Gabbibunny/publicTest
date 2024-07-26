@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Input Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Simple Input Form</h1>
+    <form id="inputForm">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+        
+        <label for="smoker">Smoker:</label>
+        <select id="smoker" name="smoker" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+        
+        <button type="button" onclick="generateResult()">Generate</button>
+    </form>
+    
+    <div class="result" id="result"></div>
+    
+    <script>
+        function generateResult() {
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const smoker = document.getElementById('smoker').value;
+            let resultText = "Based on your input: ";
+            
+            if (age) resultText += `Age: ${age}, `;
+            if (gender) resultText += `Gender: ${gender}, `;
+            if (smoker) resultText += `Smoker: ${smoker}`;
+            
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
